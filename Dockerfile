@@ -1,9 +1,9 @@
-FROM php:7.2-cli-stretch
+FROM php:7.3-cli-stretch
 
 # Install git, the php image doesn't have installed
 RUN apt-get update -yqq \
     && apt-get install git -yqq \
-    && apt-get install wget git curl libcurl4-openssl-dev unzip zlib1g-dev libmcrypt-dev libxml2-dev libxslt-dev libjpeg-dev libpng-dev libfreetype6-dev libxslt-dev -yqq
+    && apt-get install wget git curl libcurl4-openssl-dev unzip zlib1g-dev libmcrypt-dev libxml2-dev libxslt-dev libjpeg-dev libpng-dev libfreetype6-dev libxslt-dev libzip-dev mysql-client -yqq
 
 # Install Latest sodium
 RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz && tar xvzf LATEST.tar.gz && cd libsodium-stable && ./configure && make && make check && make install && cd ../ && rm -rf LATEST.tar.gz libsodium-stable \
