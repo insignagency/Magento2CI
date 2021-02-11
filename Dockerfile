@@ -10,7 +10,7 @@ RUN wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz && tar 
     && apt-get update -yqq
 
 # Install PHP Extensions
-RUN docker-php-ext-install xsl sodium pdo_mysql zip bcmath curl xml mbstring xsl json soap \
+RUN docker-php-ext-install xsl sodium pdo_mysql zip bcmath curl xml mbstring xsl json soap sockets \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
